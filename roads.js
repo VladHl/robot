@@ -1,3 +1,6 @@
+// importing function to build graph from roads
+const buildGraph = require("./graph");
+
 const ROADS = [
   "Alice's House-Bob's House",
   "Alice's House-Post Office",
@@ -15,9 +18,11 @@ const ROADS = [
   "Shop-Town Hall"
 ];
 
+const roadGraph = buildGraph(ROADS);
+
 // This makes sure the data is exported in node.js —
 // `require('./path/to/scripts.js')` will get you the array.
 if (typeof module != "undefined" && module.exports && (typeof window == "undefined" || window.exports != exports))
-  module.exports = ROADS;
-if (typeof global != "undefined" && !global.ROADS)
-  global.ROADS = ROADS;
+  module.exports = roadGraph;
+if (typeof global != "undefined" && !global.roadGraph)
+  global.roadGraph = roadGraph;
